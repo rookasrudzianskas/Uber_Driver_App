@@ -1,17 +1,19 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from "react-native";
+import {Dimensions, Text, TouchableOpacity, View} from "react-native";
 import styles from "./styles";
 import tailwind from "tailwind-rn";
 import MapView, {PROVIDER_GOOGLE} from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 import {FontAwesome, MaterialCommunityIcons, Octicons} from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import tw from "tailwind-react-native-classnames";
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyBmXijpsVGRk39hnHdg6aWoeZ_Uaj81B-Y';
 
 const HomeScreen = () => {
     const origin = {latitude: 54.7855097, longitude: 25.3463961};
     const destination = {latitude: 54.7223604, longitude: 25.3022093};
+    const windowWidth = Dimensions.get('window').width;
 
     return (
             <View style={styles.container}>
@@ -48,6 +50,10 @@ const HomeScreen = () => {
 
                     <TouchableOpacity activeOpacity={0.8} onPress={() => console.log("Something")} style={[styles.roundButton, {bottom: 0, right: 0, marginBottom: 115, marginRight: 30}]}>
                         <MaterialCommunityIcons name="comment-plus" size={24} color="#4a4a4a" />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity activeOpacity={0.8} onPress={() => console.log("Something")} style={[styles.roundButton, {bottom: 0, right: 0, marginBottom: 115, marginRight: windowWidth / 2 - 26}]}>
+                        <Text style={tailwind("")}>GO</Text>
                     </TouchableOpacity>
 
 
