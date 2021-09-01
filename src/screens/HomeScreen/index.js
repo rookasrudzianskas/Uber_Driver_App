@@ -38,7 +38,7 @@ const HomeScreen = () => {
                     </TouchableOpacity>
 
                     <TouchableOpacity activeOpacity={0.8} onPress={() => console.log("Something")} style={[styles.roundButton, {top: 0, right: 0, marginTop: 45, marginRight: 30}]}>
-                        <MaterialIcons name="menu" size={27} color="#4a4a4a" />
+                        <MaterialIcons name="search" size={26} color="#4a4a4a" />
                     </TouchableOpacity>
 
                     <TouchableOpacity activeOpacity={0.8} onPress={() => console.log("Something")} style={[styles.roundButton1, {bottom: 0, left: 0, marginBottom: 115, marginLeft: 30}]}>
