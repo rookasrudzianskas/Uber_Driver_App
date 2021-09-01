@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import tailwind from 'tailwind-rn';
 
-export default function App() {
+const App = () => {
   return (
     <View style={tailwind('flex flex-1 items-center justify-center bg-white')}>
       <Text>UBER Driver app 🔥!</Text>
@@ -12,3 +12,5 @@ export default function App() {
   );
 }
 
+
+export default App;
