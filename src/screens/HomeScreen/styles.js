@@ -12,6 +12,12 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
     },
+    roundButton: {
+        position: 'absolute',
+        backgroundColor: "white",
+        padding: 13,
+        borderRadius: 30,
+    }
 });
 
 export default styles;

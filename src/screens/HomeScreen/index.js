@@ -33,11 +33,9 @@ const HomeScreen = () => {
                     />
                 </MapView>
 
-                <View>
-                    <TouchableOpacity onPress={() => console.log("Something")}>
-                        
+                    <TouchableOpacity onPress={() => console.log("Something")} style={styles.roundButton}>
+                        <MaterialIcons name="menu" size={27} color="#4a4a4a" />
                     </TouchableOpacity>
-                </View>
 
                 <View style={tailwind('flex h-24 flex-row items-center mb-24 mx-5')}>
                     <View style={tailwind('flex flex-grow')}>
