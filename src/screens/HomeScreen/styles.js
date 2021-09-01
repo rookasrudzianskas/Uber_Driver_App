@@ -28,6 +28,17 @@ const styles = StyleSheet.create({
         paddingBottom: 12,
         borderRadius: 30,
 
+    },
+    roundButton2: {
+        position: 'absolute',
+        backgroundColor: "#276EF1",
+        width: 90,
+        height: 90,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 50,
+        bottom: 110,
     }
 });
 

@@ -52,8 +52,8 @@ const HomeScreen = () => {
                         <MaterialCommunityIcons name="comment-plus" size={24} color="#4a4a4a" />
                     </TouchableOpacity>
 
-                    <TouchableOpacity activeOpacity={0.8} onPress={() => console.log("Something")} style={[styles.roundButton, {bottom: 0, right: 0, marginBottom: 115, marginRight: windowWidth / 2 - 26}]}>
-                        <Text style={tailwind("")}>GO</Text>
+                    <TouchableOpacity activeOpacity={0.8} onPress={() => console.log("Something")} style={[styles.roundButton2]}>
+                        <Text style={tailwind("text-3xl font-bold text-white")}>GO</Text>
                     </TouchableOpacity>
 
 
