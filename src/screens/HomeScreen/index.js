@@ -61,7 +61,11 @@ const HomeScreen = () => {
                     </TouchableOpacity>
 
                     <TouchableOpacity activeOpacity={0.8} onPress={onGo} style={[styles.roundButton2]}>
-                        <Text style={tailwind("text-3xl font-bold text-white")}>GO</Text>
+                        <Text style={tailwind("text-3xl font-bold text-white")}>
+                            {
+                                isOnline ? 'GO' : 'END'
+                            }
+                        </Text>
                     </TouchableOpacity>
 
                     <View activeOpacity={0.8} onPress={() => console.log("Something")} style={[styles.roundButton3, tw`bg-gray-900 px-3 py-2`]}>
