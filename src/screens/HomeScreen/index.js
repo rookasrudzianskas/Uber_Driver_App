@@ -1,9 +1,11 @@
 import React from 'react';
-import {View} from "react-native";
+import {Text, View} from "react-native";
 import styles from "./styles";
 import tailwind from "tailwind-rn";
 import MapView, {PROVIDER_GOOGLE} from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
+import { Octicons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyBmXijpsVGRk39hnHdg6aWoeZ_Uaj81B-Y';
 
@@ -30,6 +32,18 @@ const HomeScreen = () => {
                         apikey={GOOGLE_MAPS_APIKEY}
                     />
                 </MapView>
+
+                <View style={tailwind('flex h-24 flex-row items-center mb-24 mx-5')}>
+                    <View style={tailwind('flex flex-grow')}>
+                        <Octicons name="settings" size={27} color="black" />
+                    </View>
+                    <View style={tailwind('flex flex-grow')}>
+                        <Text style={tailwind('text-xl font-medium')}>You are offline</Text>
+                    </View>
+                    <View style={tailwind('flex')}>
+                        <MaterialIcons name="menu-open" size={27} color="black" />
+                    </View>
+                </View>
             </View>
     );
 };
