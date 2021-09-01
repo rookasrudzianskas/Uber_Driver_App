@@ -41,6 +41,7 @@ const HomeScreen = () => {
                         <MaterialIcons name="search" size={26} color="#4a4a4a" />
                     </TouchableOpacity>
 
+
                     <TouchableOpacity activeOpacity={0.8} onPress={() => console.log("Something")} style={[styles.roundButton1, {bottom: 0, left: 0, marginBottom: 115, marginLeft: 30}]}>
                         <FontAwesome name="shield" size={27} color="#276EF1" />
                     </TouchableOpacity>
@@ -48,6 +49,7 @@ const HomeScreen = () => {
                     <TouchableOpacity activeOpacity={0.8} onPress={() => console.log("Something")} style={[styles.roundButton, {bottom: 0, right: 0, marginBottom: 115, marginRight: 30}]}>
                         <MaterialCommunityIcons name="comment-plus" size={24} color="#4a4a4a" />
                     </TouchableOpacity>
+
 
                 <View style={tailwind('flex h-24 flex-row items-center mb-24 mx-5')}>
                     <View style={tailwind('flex flex-grow')}>
