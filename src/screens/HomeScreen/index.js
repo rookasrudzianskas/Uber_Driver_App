@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Dimensions, Text, TouchableOpacity, View} from "react-native";
 import styles from "./styles";
 import tailwind from "tailwind-rn";
@@ -14,6 +14,7 @@ const HomeScreen = () => {
     const origin = {latitude: 54.7855097, longitude: 25.3463961};
     const destination = {latitude: 54.7223604, longitude: 25.3022093};
     const windowWidth = Dimensions.get('window').width;
+    const [isOnline, setIsOnline] = useState(false);
 
     return (
             <View style={styles.container}>
@@ -26,6 +27,7 @@ const HomeScreen = () => {
                         latitudeDelta: 0.0922,
                         longitudeDelta: 0.0421,
                     }}
+
                     showsUserLocation={true}
                     style={styles.map}
                 >
@@ -59,7 +61,7 @@ const HomeScreen = () => {
                     </TouchableOpacity>
 
                     <View activeOpacity={0.8} onPress={() => console.log("Something")} style={[styles.roundButton3, tw`bg-gray-900 px-3 py-2`]}>
-                        <Text style={tailwind("text-2xl text-white")}><Text style={tailwind('text-green-500')}>$</Text>0.00</Text>
+                        <Text style={tailwind("text-2xl font-bold text-white")}><Text style={tailwind('text-green-500')}>$</Text>0.00</Text>
                     </View>
 
 
