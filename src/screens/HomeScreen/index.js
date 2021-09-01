@@ -16,7 +16,8 @@ const HomeScreen = () => {
                         longitudeDelta: 0.0421,
                     }}
                     showsUserLocation={true}
-                    style={styles.map} />
+                    style={styles.map}
+                />
             </View>
     );
 };
