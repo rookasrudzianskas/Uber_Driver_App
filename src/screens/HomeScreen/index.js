@@ -6,7 +6,6 @@ import MapView, {PROVIDER_GOOGLE} from "react-native-maps";
 
 const HomeScreen = () => {
     return (
-        <View>
             <View style={styles.container}>
                 <MapView
                     provider={PROVIDER_GOOGLE}
@@ -19,7 +18,6 @@ const HomeScreen = () => {
                     showsUserLocation={true}
                     style={styles.map} />
             </View>
-        </View>
     );
 };
 
