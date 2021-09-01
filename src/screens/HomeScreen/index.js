@@ -16,6 +16,10 @@ const HomeScreen = () => {
     const windowWidth = Dimensions.get('window').width;
     const [isOnline, setIsOnline] = useState(false);
 
+    const onGo = () => {
+        setIsOnline(!isOnline);
+    }
+
     return (
             <View style={styles.container}>
 
@@ -56,7 +60,7 @@ const HomeScreen = () => {
                         <MaterialCommunityIcons name="comment-plus" size={24} color="#4a4a4a" />
                     </TouchableOpacity>
 
-                    <TouchableOpacity activeOpacity={0.8} onPress={() => console.log("Something")} style={[styles.roundButton2]}>
+                    <TouchableOpacity activeOpacity={0.8} onPress={onGo} style={[styles.roundButton2]}>
                         <Text style={tailwind("text-3xl font-bold text-white")}>GO</Text>
                     </TouchableOpacity>
 
@@ -70,7 +74,11 @@ const HomeScreen = () => {
                         <Octicons name="settings" size={27} color="#4a4a4a" />
                     </View>
                     <View style={tailwind('flex flex-grow')}>
-                        <Text style={tailwind('text-xl font-medium text-gray-800')}>You are offline</Text>
+                        {isOnline ? (
+                            <Text style={tailwind('text-xl font-medium text-gray-800')}>You are offline</Text>
+                        ) : (
+                            <Text style={tailwind('text-xl font-medium text-gray-800')}>You are online</Text>
+                        )}
                     </View>
                     <View style={tailwind('flex')}>
                         <MaterialIcons name="menu-open" size={27} color="#4a4a4a" />
