@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View} from "react-native";
+import {Text, TouchableOpacity, View} from "react-native";
 import styles from "./styles";
 import tailwind from "tailwind-rn";
 import MapView, {PROVIDER_GOOGLE} from "react-native-maps";
@@ -32,6 +32,12 @@ const HomeScreen = () => {
                         apikey={GOOGLE_MAPS_APIKEY}
                     />
                 </MapView>
+
+                <View>
+                    <TouchableOpacity onPress={() => console.log("Something")}>
+                        
+                    </TouchableOpacity>
+                </View>
 
                 <View style={tailwind('flex h-24 flex-row items-center mb-24 mx-5')}>
                     <View style={tailwind('flex flex-grow')}>
