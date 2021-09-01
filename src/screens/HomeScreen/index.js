@@ -5,9 +5,12 @@ import tailwind from "tailwind-rn";
 import MapView, {PROVIDER_GOOGLE} from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 
-const GOOGLE_MAPS_APIKEY = 'AIzaSyBmXijpsVGRk39hnHdg6aWoeZ_Uaj81B';
+const GOOGLE_MAPS_APIKEY = 'AIzaSyBmXijpsVGRk39hnHdg6aWoeZ_Uaj81B-Y';
 
 const HomeScreen = () => {
+    const origin = {latitude: 37.3318456, longitude: -122.0296002};
+    const destination = {latitude: 37.771707, longitude: -122.4053769};
+
     return (
             <View style={styles.container}>
                 <MapView
