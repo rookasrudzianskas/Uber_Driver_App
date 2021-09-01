@@ -1,14 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import tailwind from 'tailwind-rn';
 
 const App = () => {
   return (
-    <View style={tailwind('flex flex-1 items-center justify-center bg-white')}>
-      <Text style={ tailwind('font-bold text-2xl')}>UBER Driver app 🔥!</Text>
-      <StatusBar style="auto" />
-    </View>
+      <SafeAreaView style={tailwind('h-full')}>
+          <View style={tailwind('pt-12 items-center')}>
+              <View style={tailwind('bg-blue-200 px-3 py-1 rounded-full')}>
+                  <Text style={tailwind('text-blue-800 font-semibold')}>
+                      Hello Uber Driver App
+                  </Text>
+              </View>
+          </View>
+      </SafeAreaView>
   );
 }
 
