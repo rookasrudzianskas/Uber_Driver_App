@@ -6,7 +6,7 @@ import tailwind from 'tailwind-rn';
 const App = () => {
   return (
     <View style={tailwind('flex flex-1 items-center justify-center bg-white')}>
-      <Text style={ tailwind('font-bold text-xl')}>UBER Driver app 🔥!</Text>
+      <Text style={ tailwind('font-bold text-2xl')}>UBER Driver app 🔥!</Text>
       <StatusBar style="auto" />
     </View>
   );
