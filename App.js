@@ -6,7 +6,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 
 const App = () => {
   return (
-      <SafeAreaView style={tailwind('h-full')}>
+      <SafeAreaView style={tailwind('flex-1')}>
           <View style={tailwind('items-center')}>
 
               <HomeScreen />
