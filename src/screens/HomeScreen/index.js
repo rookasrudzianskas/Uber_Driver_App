@@ -63,7 +63,7 @@ const HomeScreen = () => {
                     <TouchableOpacity activeOpacity={0.8} onPress={onGo} style={[styles.roundButton2]}>
                         <Text style={tailwind("text-3xl font-bold text-white")}>
                             {
-                                isOnline ? 'GO' : 'END'
+                                isOnline ? 'END' : 'GO'
                             }
                         </Text>
                     </TouchableOpacity>
@@ -79,9 +79,9 @@ const HomeScreen = () => {
                     </View>
                     <View style={tailwind('flex flex-grow')}>
                         {isOnline ? (
-                            <Text style={tailwind('text-xl font-medium text-gray-800')}>You are offline</Text>
-                        ) : (
                             <Text style={tailwind('text-xl font-medium text-gray-800')}>You are online</Text>
+                        ) : (
+                            <Text style={tailwind('text-xl font-medium text-gray-800')}>You are offline</Text>
                         )}
                     </View>
                     <View style={tailwind('flex')}>
