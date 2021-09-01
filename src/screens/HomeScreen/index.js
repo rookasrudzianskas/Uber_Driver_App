@@ -63,7 +63,7 @@ const HomeScreen = () => {
                     </View>
 
 
-                <View style={tailwind('flex h-24 flex-row items-center mb-24 mx-5')}>
+                <View style={tailwind('flex h-24 flex-row items-center mb-28 mx-5')}>
                     <View style={tailwind('flex flex-grow')}>
                         <Octicons name="settings" size={27} color="#4a4a4a" />
                     </View>
