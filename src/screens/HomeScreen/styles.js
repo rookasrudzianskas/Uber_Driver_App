@@ -39,6 +39,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 50,
         bottom: 110,
+    },
+    roundButton3: {
+        position: 'absolute',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 50,
+        top: 50,
     }
 });
 

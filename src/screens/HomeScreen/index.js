@@ -17,6 +17,7 @@ const HomeScreen = () => {
 
     return (
             <View style={styles.container}>
+
                 <MapView
                     provider={PROVIDER_GOOGLE}
                     initialRegion={{
@@ -39,6 +40,7 @@ const HomeScreen = () => {
                         <MaterialIcons name="menu" size={27} color="#4a4a4a" />
                     </TouchableOpacity>
 
+
                     <TouchableOpacity activeOpacity={0.8} onPress={() => console.log("Something")} style={[styles.roundButton, {top: 0, right: 0, marginTop: 45, marginRight: 30}]}>
                         <MaterialIcons name="search" size={26} color="#4a4a4a" />
                     </TouchableOpacity>
@@ -55,6 +57,10 @@ const HomeScreen = () => {
                     <TouchableOpacity activeOpacity={0.8} onPress={() => console.log("Something")} style={[styles.roundButton2]}>
                         <Text style={tailwind("text-3xl font-bold text-white")}>GO</Text>
                     </TouchableOpacity>
+
+                    <View activeOpacity={0.8} onPress={() => console.log("Something")} style={[styles.roundButton3, tw`bg-gray-900 px-3 py-2`]}>
+                        <Text style={tailwind("text-2xl text-white")}><Text style={tailwind('text-green-500')}>$</Text>0.00</Text>
+                    </View>
 
 
                 <View style={tailwind('flex h-24 flex-row items-center mb-24 mx-5')}>
