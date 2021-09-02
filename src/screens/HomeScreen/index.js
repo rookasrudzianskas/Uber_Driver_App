@@ -57,7 +57,7 @@ const HomeScreen = () => {
                         <View style={tailwind("flex flex-row mx-8 items-center")}>
                             <Text style={tailwind("text-xl font-bold mr-5")}>1 min</Text>
                             <View styles={tailwind("")}>
-                                <FontAwesome name={"user"} color={"#4a4a4a"} size={35} />
+                                <MaterialIcons name="account-circle" size={40} color="#276EF1" />
                             </View>
                             <Text style={tailwind("text-xl font-bold ml-5")}>0.2 mi</Text>
                         </View>
