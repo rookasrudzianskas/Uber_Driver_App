@@ -9,8 +9,8 @@ const App = () => {
   return (
           <View style={tailwind('flex-1')}>
 
-              {/*<HomeScreen />*/}
-              <NewOrderPopupScreen />
+              <HomeScreen />
+              {/*<NewOrderPopupScreen />*/}
           </View>
   );
 }
