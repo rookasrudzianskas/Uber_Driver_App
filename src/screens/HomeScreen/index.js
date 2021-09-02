@@ -23,8 +23,13 @@ const HomeScreen = () => {
     });
 
     const [newOrder, setNewOrder] = useState({
-       id: '1',
+        id: '1',
+        type: 'UberX',
+        originLatitude: 54.7855097,
+        originLongitude: 25.3463961,
 
+        destLatitude: 54.7223604,
+        destLongitude: 25.3022093,
     });
 
     const onGo = () => {
