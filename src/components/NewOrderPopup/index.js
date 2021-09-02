@@ -1,8 +1,9 @@
 import React from 'react';
-import {Image, Text, TouchableOpacity, View} from "react-native";
+import {Image, SafeAreaView, Text, TouchableOpacity, View} from "react-native";
 import styles from "./styles";
 import tailwind from "tailwind-rn";
 import {AntDesign, Entypo, MaterialIcons} from "@expo/vector-icons";
+import tw from "tailwind-react-native-classnames";
 
 const NewOrderPopup = (props) => {
 
@@ -12,14 +13,17 @@ const NewOrderPopup = (props) => {
 
     return (
         <>
-            <TouchableOpacity activeOpacity={0.8} onPress={onDecline}>
-                <View style={tailwind("z-50 absolute top-24")}>
-                    <Entypo name="cross" size={24} color="white" />
-                    <Text style={tailwind("text-3xl")}>Decline</Text>
-                </View>
-            </TouchableOpacity>
 
-            <View style={tailwind('bg-black absolute bottom-8 w-96 p-6 rounded-xl flex flex-col justify-center items-center')}>
+
+            <View style={tailwind('bg-black absolute bottom-8 w-96 p-6 rounded-xl flex flex-col justify-center items-center justify-between')}>
+                <View style={tailwind("flex")}>
+                <TouchableOpacity activeOpacity={0.8} onPress={onDecline}>
+                    <View style={[styles.something, tw`z-50 absolute flex flex-row right-0 bg-black rounded-full px-5 py-2 items-center`]}>
+                        <Entypo name="cross" size={24} color="white" />
+                        <Text style={tailwind("text-xl text-white")}>Decline</Text>
+                    </View>
+                </TouchableOpacity>
+                </View>
                 <View style={tailwind("bg-black flex flex-row")}>
                     <View style={tailwind(" flex flex-row items-center mb-4")}>
                         <View style={tailwind("flex")}>
