@@ -18,6 +18,15 @@ const HomeScreen = () => {
     const windowWidth = Dimensions.get('window').width;
     const [isOnline, setIsOnline] = useState(false);
 
+    const [order, setOrder] = useState({
+
+    });
+
+    const [newOrder, setNewOrder] = useState({
+       id: '1',
+
+    });
+
     const onGo = () => {
         setIsOnline(!isOnline);
     }
