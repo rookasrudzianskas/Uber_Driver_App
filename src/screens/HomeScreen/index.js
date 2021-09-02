@@ -17,6 +17,7 @@ const HomeScreen = () => {
     const destination = {latitude: 54.7223604, longitude: 25.3022093};
     const windowWidth = Dimensions.get('window').width;
     const [isOnline, setIsOnline] = useState(false);
+    const [myPosition, setMyPosition] = useState(null);
 
     const [order, setOrder] = useState(null);
 
@@ -46,6 +47,13 @@ const HomeScreen = () => {
     const onAccept = (newOrder) => {
         setOrder(newOrder);
         setNewOrder(null);
+    }
+
+    const onUserLocationChange = (event) => {
+        if(myPosition){
+            return;
+        }
+        setMyPosition(event.nativeEvent.coordinate);
     }
 
     const renderBottomTitle = () => {
@@ -81,6 +89,7 @@ const HomeScreen = () => {
 
                 <MapView
                     provider={PROVIDER_GOOGLE}
+                    onUserLocationChange={onUserLocationChange}
                     initialRegion={{
                         latitude: 54.7855097,
                         longitude: 25.3463961,
@@ -93,7 +102,7 @@ const HomeScreen = () => {
                 >
                     {order && (
                     <MapViewDirections
-                        origin={origin}
+                        origin={myPosition}
                         strokeWidth={5}
                         strokeColor={"black"}
                         destination={{
