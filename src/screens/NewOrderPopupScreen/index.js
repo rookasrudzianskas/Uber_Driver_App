@@ -17,7 +17,7 @@ const NewOrderPopupScreen = (props) => {
     }
 
     return (
-        <>
+        <View style={styles.root}>
 
             <MapView
                 provider={PROVIDER_GOOGLE}
@@ -74,7 +74,7 @@ const NewOrderPopupScreen = (props) => {
                 </View>
             </View>
 {/*</View>*/}
-        </>
+        </View>
     );
 };
 

@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').height,
         // zIndex: 49,
     },
+    root: {
+        backgroundColor: "#00000099"
+    }
 });
 
 export default styles;
