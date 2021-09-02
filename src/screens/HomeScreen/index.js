@@ -66,7 +66,12 @@ const HomeScreen = () => {
 
 
     useEffect(() =>  {
-
+        if(order && order.distance && order.distance <= 0.2) {
+            setOrder({
+                ...order,
+                pickedUp: true,
+            });
+        }
     }, [order]);
 
     const onUserLocationChange = ({ nativeEvent }) => {
