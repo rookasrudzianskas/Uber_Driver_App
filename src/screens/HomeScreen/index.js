@@ -18,9 +18,7 @@ const HomeScreen = () => {
     const windowWidth = Dimensions.get('window').width;
     const [isOnline, setIsOnline] = useState(false);
 
-    const [order, setOrder] = useState({
-
-    });
+    const [order, setOrder] = useState(null);
 
     const [newOrder, setNewOrder] = useState({
         id: '1',
@@ -33,7 +31,7 @@ const HomeScreen = () => {
 
         user: {
             rating: 5.01,
-            name: "Rokas"
+            name: "Rokas",
         }
     });
 
@@ -54,25 +52,17 @@ const HomeScreen = () => {
 
         if(order) {
             return (
-                <View>
                     <Text style={tailwind('text-xl font-medium text-gray-800')}>Picking up {order.user.name}</Text>
-                </View>
             )
         }
 
         if(isOnline ) {
            return (
-               <View>
-                    <Text style={tailwind('text-xl font-medium text-gray-800')}>You are online</Text>
-               </View>
+                <Text style={tailwind('text-xl font-medium text-gray-800')}>You are online</Text>
            )
         }
 
-            return (
-                <View>
-                    <Text style={tailwind('text-xl font-medium text-gray-800')}>You are offline</Text>
-                </View>
-                )
+          return (<Text style={tailwind('text-xl font-medium text-gray-800')}>You are offline</Text>)
     }
 
     return (
@@ -133,7 +123,7 @@ const HomeScreen = () => {
                         <Octicons name="settings" size={27} color="#4a4a4a" />
                     </View>
                     <View style={tailwind('flex flex-grow')}>
-                        {renderBottomTitle}
+                        {renderBottomTitle()}
                     </View>
                     <View style={tailwind('flex')}>
                         <MaterialIcons name="menu-open" size={27} color="#4a4a4a" />
