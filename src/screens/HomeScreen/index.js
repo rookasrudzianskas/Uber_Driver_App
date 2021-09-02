@@ -92,7 +92,7 @@ const HomeScreen = () => {
                 </View>
 
 
-                <NewOrderPopup />
+                {/*<NewOrderPopup />*/}
 
             </View>
     );
