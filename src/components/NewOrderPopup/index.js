@@ -7,15 +7,8 @@ import tw from "tailwind-react-native-classnames";
 import MapView, {PROVIDER_GOOGLE} from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 
-const NewOrderPopup = (props) => {
+const NewOrderPopup = ({ newOrder, onAccept, onDecline }) => {
 
-    const onDecline = () => {
-        console.log("Something");
-    }
-
-    const onAccept = () => {
-        console.log("Accept");
-    }
 
     return (
         <>
@@ -29,7 +22,7 @@ const NewOrderPopup = (props) => {
                 <View style={tailwind("bg-black flex flex-row")}>
                     <View style={tailwind(" flex flex-row items-center mb-4")}>
                         <View style={tailwind("flex")}>
-                            <Text style={tailwind("text-gray-200 text-xl mr-2")}>UberX</Text>
+                            <Text style={tailwind("text-gray-200 text-xl mr-2")}>{newOrder?.type}</Text>
                         </View>
                         <View style={tailwind("flex")}>
                             <View style={styles.userBG}>
@@ -37,8 +30,9 @@ const NewOrderPopup = (props) => {
                             </View>
                         </View>
                         <View style={tailwind("flex flex-row items-center")}>
+
                             <AntDesign name={"star"} size={15} color={"white"} style={tailwind("ml-1")}/>
-                            <Text style={tailwind("text-gray-200 text-xl ml-1")}>5.00</Text>
+                            <Text style={tailwind("text-gray-200 text-xl ml-1")}>{newOrder?.user.rating}</Text>
                         </View>
                     </View>
                 </View>

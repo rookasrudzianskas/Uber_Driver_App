@@ -32,12 +32,20 @@ const HomeScreen = () => {
         destLongitude: 25.3022093,
 
         user: {
-            rating: 5.00
+            rating: 5.01
         }
     });
 
     const onGo = () => {
         setIsOnline(!isOnline);
+    }
+
+    const onDecline = () => {
+        setNewOrder(null);
+    }
+
+    const onAccept = (newOrder) => {
+        setOrder(newOrder);
     }
 
     return (
@@ -110,7 +118,11 @@ const HomeScreen = () => {
                 </View>
 
 
-                <NewOrderPopup />
+                {newOrder && <NewOrderPopup
+                    onDecline={onDecline}
+                    onAccept={() => onAccept(newOrder)}
+                    newOrder={newOrder}
+                />}
 
             </View>
     );
