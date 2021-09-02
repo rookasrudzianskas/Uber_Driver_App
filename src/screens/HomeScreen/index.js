@@ -63,7 +63,7 @@ const HomeScreen = () => {
 
 
     useEffect(() =>  {
-        if(order && order.distance && order.distance > 0.2) {
+        if(order && order.distance && order.distance < 0.2) {
             setOrder({
                 ...order,
                 pickedUp: true,
@@ -86,7 +86,7 @@ const HomeScreen = () => {
 
     const renderBottomTitle = () => {
 
-        if(order && order.pickedUp && order.distance > 0.2) {
+        if(order && order.pickedUp && order.distance < 0.2) {
             return (
                 <View style={tailwind("flex flex-col items-center mr-8")}>
                     <View style={tailwind("flex flex-row items-center")}>
