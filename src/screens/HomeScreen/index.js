@@ -64,6 +64,11 @@ const HomeScreen = () => {
         }
     }
 
+
+    useEffect(() =>  {
+
+    }, [order]);
+
     const onUserLocationChange = ({ nativeEvent }) => {
         // const setLocationSomething = nativeEvent.location;
         if(myPosition){
@@ -84,11 +89,11 @@ const HomeScreen = () => {
                 <View style={tailwind("flex flex-col items-center mr-8")}>
                     <View style={tailwind("flex flex-row items-center")}>
                         <View style={tailwind("flex flex-row mx-8 items-center mr-6")}>
-                            <Text style={tailwind("text-xl font-bold mr-5")}>{(order?.duration).toFixed(0) || '0'} min</Text>
+                            <Text style={tailwind("text-xl font-bold mr-5")}>{order.duration ? (order.duration).toFixed(0) : '0'} min</Text>
                             <View styles={tailwind("")}>
                                 <MaterialIcons name="account-circle" size={40} color="#276EF1" />
                             </View>
-                            <Text style={tailwind("text-xl font-bold ml-5")}>{(order?.distance).toFixed(1) || '0'} km</Text>
+                            <Text style={tailwind("text-xl font-bold ml-5")}>{order.distance ? (order.distance).toFixed(1) : '0'} km</Text>
                         </View>
                     </View>
                     <Text style={tailwind('text-xl font-medium text-gray-800 ml-4')}>Picking up {order.user.name}</Text>
