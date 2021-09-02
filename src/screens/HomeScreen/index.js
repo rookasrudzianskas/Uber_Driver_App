@@ -7,6 +7,8 @@ import MapViewDirections from "react-native-maps-directions";
 import {FontAwesome, MaterialCommunityIcons, Octicons} from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import tw from "tailwind-react-native-classnames";
+import NewOrderPopup from "../../components/NewOrderPopup";
+
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyBmXijpsVGRk39hnHdg6aWoeZ_Uaj81B-Y';
 
@@ -88,6 +90,10 @@ const HomeScreen = () => {
                         <MaterialIcons name="menu-open" size={27} color="#4a4a4a" />
                     </View>
                 </View>
+
+
+                <NewOrderPopup />
+
             </View>
     );
 };
