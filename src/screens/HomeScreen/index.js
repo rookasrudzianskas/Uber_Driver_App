@@ -88,7 +88,7 @@ const HomeScreen = () => {
                             <View styles={tailwind("")}>
                                 <MaterialIcons name="account-circle" size={40} color="#276EF1" />
                             </View>
-                            <Text style={tailwind("text-xl font-bold ml-5")}>{(order?.distance).toFixed(1) || '0'} mi</Text>
+                            <Text style={tailwind("text-xl font-bold ml-5")}>{(order?.distance).toFixed(1) || '0'} km</Text>
                         </View>
                     </View>
                     <Text style={tailwind('text-xl font-medium text-gray-800 ml-8')}>Picking up {order.user.name}</Text>
