@@ -30,6 +30,10 @@ const HomeScreen = () => {
 
         destLatitude: 54.7223604,
         destLongitude: 25.3022093,
+
+        user: {
+            rating: 5.00
+        }
     });
 
     const onGo = () => {
