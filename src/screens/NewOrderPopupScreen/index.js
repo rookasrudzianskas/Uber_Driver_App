@@ -33,7 +33,7 @@ const NewOrderPopupScreen = (props) => {
             >
             </MapView>
 
-
+{/*<View style={tailwind('z-50')}>*/}
             <SafeAreaView style={tailwind('h-full')}>
                 <View style={tailwind('pt-4 items-center -ml-32')}>
                     <TouchableOpacity onClick={onAccept} activeOpacity={0.8} onPress={onDecline}>
@@ -79,6 +79,7 @@ const NewOrderPopupScreen = (props) => {
                     <Text style={tailwind("text-gray-200 text-xl")}>Towards your destination</Text>
                 </View>
             </View>
+{/*</View>*/}
         </>
     );
 };
