@@ -4,6 +4,8 @@ import styles from "./styles";
 import tailwind from "tailwind-rn";
 import {AntDesign, Entypo, MaterialIcons} from "@expo/vector-icons";
 import tw from "tailwind-react-native-classnames";
+import MapView, {PROVIDER_GOOGLE} from "react-native-maps";
+import MapViewDirections from "react-native-maps-directions";
 
 const NewOrderPopup = (props) => {
 
@@ -17,6 +19,7 @@ const NewOrderPopup = (props) => {
 
     return (
         <>
+
 
             <View style={tailwind('bg-black absolute bottom-8 w-96 p-6 rounded-xl flex flex-col justify-center items-center justify-between')}>
                 <View style={tailwind("flex")}>

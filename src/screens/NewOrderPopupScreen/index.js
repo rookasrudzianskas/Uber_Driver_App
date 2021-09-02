@@ -4,6 +4,7 @@ import styles from "./styles";
 import tailwind from "tailwind-rn";
 import {AntDesign, Entypo, MaterialIcons} from "@expo/vector-icons";
 import tw from "tailwind-react-native-classnames";
+import MapView, {PROVIDER_GOOGLE} from "react-native-maps";
 
 const NewOrderPopupScreen = (props) => {
 
@@ -18,10 +19,25 @@ const NewOrderPopupScreen = (props) => {
     return (
         <>
 
+            <MapView
+                provider={PROVIDER_GOOGLE}
+                initialRegion={{
+                    latitude: 54.7855097,
+                    longitude: 25.3463961,
+                    latitudeDelta: 0.0922,
+                    longitudeDelta: 0.0421,
+                }}
+
+                showsUserLocation={true}
+                style={styles.map}
+            >
+            </MapView>
+
+
             <SafeAreaView style={tailwind('h-full')}>
                 <View style={tailwind('pt-4 items-center -ml-32')}>
                     <TouchableOpacity onClick={onAccept} activeOpacity={0.8} onPress={onDecline}>
-                        <View style={[styles.something, tw`z-50 absolute flex flex-row right-0 bg-black rounded-full px-5 py-2 items-center`]}>
+                        <View style={[styles.something, tw`absolute flex flex-row right-0 bg-black rounded-full px-5 py-2 items-center`]}>
                             <Entypo name="cross" size={24} color="white" />
                             <Text style={tailwind("text-xl text-white")}>Decline</Text>
                         </View>
@@ -32,7 +48,9 @@ const NewOrderPopupScreen = (props) => {
             {/*<View style={tailwind("flex mt-16")}>*/}
 
             {/*</View>*/}
-            <View style={tailwind('bg-black absolute bottom-8 w-96 p-6 rounded-xl flex flex-col justify-center items-center mx-5')}>
+
+            <View style={tailwind(' bg-black absolute bottom-8 w-96 p-6 rounded-xl flex flex-col justify-center items-center mx-5')}>
+
 
                 <View style={tailwind("bg-black flex flex-row")}>
                     <View style={tailwind(" flex flex-row items-center mb-4")}>
