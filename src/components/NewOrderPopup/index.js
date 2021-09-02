@@ -13,7 +13,9 @@ const NewOrderPopup = () => {
                         <Text style={tailwind("text-gray-200 text-xl mr-2")}>UberX</Text>
                     </View>
                     <View style={tailwind("flex")}>
-                        <MaterialIcons name="account-circle" size={70} color="#276EF1" />
+                        <View style={styles.userBG}>
+                            <MaterialIcons name="account-circle" size={70} color="#276EF1" />
+                        </View>
                     </View>
                     <View style={tailwind("flex flex-row items-center")}>
                         <AntDesign name={"star"} size={15} color={"white"} style={tailwind("ml-1")}/>
