@@ -93,7 +93,10 @@ const HomeScreen = () => {
                 >
                     <MapViewDirections
                         origin={origin}
-                        destination={destination}
+                        destination={{
+                            latitude: order.originLatitude,
+                            longitude: order.originLongitude,
+                        }}
                         apikey={GOOGLE_MAPS_APIKEY}
                     />
                 </MapView>
