@@ -25,7 +25,7 @@ const HomeScreen = () => {
         id: '1',
         type: 'UberX',
         originLatitude: 54.7223604,
-        originLongitude: 25.3463961,
+        originLongitude: 25.3022093,
 
         destLatitude: 54.7855097,
         destLongitude: 25.3022093,
@@ -51,9 +51,6 @@ const HomeScreen = () => {
 
 
     const onLocationFound = (result) => {
-        console.log("Direction found");
-        console.log(result.distance);
-        console.log(result.duration);
         if(order) {
             setOrder({
                 ...order,
@@ -66,7 +63,7 @@ const HomeScreen = () => {
 
 
     useEffect(() =>  {
-        if(order && order.distance && order.distance <= 0.2) {
+        if(order && order.distance && order.distance > 0.2) {
             setOrder({
                 ...order,
                 pickedUp: true,
@@ -76,9 +73,9 @@ const HomeScreen = () => {
 
     const onUserLocationChange = ({ nativeEvent }) => {
         // const setLocationSomething = nativeEvent.location;
-        if(myPosition){
-            return;
-        }
+        // if(myPosition){
+        //     return;
+        // }
         setMyPosition(nativeEvent.coordinate);
         // return setLocationSomething;
     }
@@ -89,7 +86,7 @@ const HomeScreen = () => {
 
     const renderBottomTitle = () => {
 
-        if(order && order.pickedUp) {
+        if(order && order.pickedUp && order.distance > 0.2) {
             return (
                 <View style={tailwind("flex flex-col items-center mr-8")}>
                     <View style={tailwind("flex flex-row items-center")}>
