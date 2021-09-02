@@ -91,6 +91,7 @@ const HomeScreen = () => {
                     showsUserLocation={true}
                     style={styles.map}
                 >
+                    {order && (
                     <MapViewDirections
                         origin={origin}
                         destination={{
@@ -99,6 +100,7 @@ const HomeScreen = () => {
                         }}
                         apikey={GOOGLE_MAPS_APIKEY}
                     />
+                    )}
                 </MapView>
 
                     <TouchableOpacity activeOpacity={0.8} onPress={() => console.log("Something")} style={[styles.roundButton, {top: 0, left: 0, marginTop: 45, marginLeft: 30}]}>
