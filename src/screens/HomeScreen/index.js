@@ -46,6 +46,7 @@ const HomeScreen = () => {
 
     const onAccept = (newOrder) => {
         setOrder(newOrder);
+        setNewOrder(null);
     }
 
     return (
