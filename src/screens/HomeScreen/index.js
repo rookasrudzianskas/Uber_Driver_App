@@ -23,10 +23,10 @@ const HomeScreen = () => {
     const [newOrder, setNewOrder] = useState({
         id: '1',
         type: 'UberX',
-        originLatitude: 54.7855097,
+        originLatitude: 54.7223604,
         originLongitude: 25.3463961,
 
-        destLatitude: 54.7223604,
+        destLatitude: 54.7855097,
         destLongitude: 25.3022093,
 
         user: {
