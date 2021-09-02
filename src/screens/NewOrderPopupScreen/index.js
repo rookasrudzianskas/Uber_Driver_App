@@ -17,14 +17,21 @@ const NewOrderPopupScreen = (props) => {
 
     return (
         <>
-            <View style={tailwind("flex mt-16 flex-1")}>
-                <TouchableOpacity onClick={onAccept} activeOpacity={0.8} onPress={onDecline}>
-                    <View style={[styles.something, tw`z-50 absolute flex flex-row right-0 bg-black rounded-full px-5 py-2 items-center`]}>
-                        <Entypo name="cross" size={24} color="white" />
-                        <Text style={tailwind("text-xl text-white")}>Decline</Text>
-                    </View>
-                </TouchableOpacity>
-            </View>
+
+            <SafeAreaView style={tailwind('h-full')}>
+                <View style={tailwind('pt-4 items-center -ml-32')}>
+                    <TouchableOpacity onClick={onAccept} activeOpacity={0.8} onPress={onDecline}>
+                        <View style={[styles.something, tw`z-50 absolute flex flex-row right-0 bg-black rounded-full px-5 py-2 items-center`]}>
+                            <Entypo name="cross" size={24} color="white" />
+                            <Text style={tailwind("text-xl text-white")}>Decline</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            </SafeAreaView>
+
+            {/*<View style={tailwind("flex mt-16")}>*/}
+
+            {/*</View>*/}
             <View style={tailwind('bg-black absolute bottom-8 w-96 p-6 rounded-xl flex flex-col justify-center items-center mx-5')}>
 
                 <View style={tailwind("bg-black flex flex-row")}>
