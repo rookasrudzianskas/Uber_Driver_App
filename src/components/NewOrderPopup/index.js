@@ -7,7 +7,7 @@ import tw from "tailwind-react-native-classnames";
 import MapView, {PROVIDER_GOOGLE} from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 
-const NewOrderPopup = ({ newOrder, onAccept, onDecline }) => {
+const NewOrderPopup = ({ newOrder, onAccept, onDecline, duration, distance }) => {
 
 
     return (
@@ -38,8 +38,8 @@ const NewOrderPopup = ({ newOrder, onAccept, onDecline }) => {
                 </View>
 
                 <View style={tailwind("")}>
-                    <Text style={tailwind("text-4xl text-gray-200")}>2 min</Text>
-                    <Text style={tailwind("text-3xl text-gray-200 mb-4")}>0.3 mi</Text>
+                    <Text style={tailwind("text-4xl text-gray-200")}>{duration} min</Text>
+                    <Text style={tailwind("text-3xl text-gray-200 mb-4")}>{distance} mi</Text>
                 </View>
 
                 <View style={tailwind("flex flex-row items-center")}>

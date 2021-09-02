@@ -120,6 +120,8 @@ const HomeScreen = () => {
 
                 {newOrder && <NewOrderPopup
                     onDecline={onDecline}
+                    duration={2}
+                    distance={0.5}
                     onAccept={() => onAccept(newOrder)}
                     newOrder={newOrder}
                 />}
