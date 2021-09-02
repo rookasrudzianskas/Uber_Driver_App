@@ -33,21 +33,15 @@ const NewOrderPopupScreen = (props) => {
             >
             </MapView>
 
-{/*<View style={tailwind('z-50')}>*/}
-            <SafeAreaView style={tailwind('h-full')}>
-                <View style={tailwind('pt-4 items-center -ml-32')}>
-                    <TouchableOpacity onClick={onAccept} activeOpacity={0.8} onPress={onDecline}>
-                        <View style={[styles.something, tw`absolute flex flex-row right-0 bg-black rounded-full px-5 py-2 items-center`]}>
-                            <Entypo name="cross" size={24} color="white" />
-                            <Text style={tailwind("text-xl text-white")}>Decline</Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-            </SafeAreaView>
 
-            {/*<View style={tailwind("flex mt-16")}>*/}
-
-            {/*</View>*/}
+            <View style={tailwind("absolute top-10 left-5")}>
+                <TouchableOpacity onClick={onAccept} activeOpacity={0.8} onPress={onDecline}>
+                    <View style={[styles.something, tw` flex flex-row right-0 bg-black rounded-full px-5 py-2 items-center`]}>
+                        <Entypo name="cross" size={24} color="white" />
+                        <Text style={tailwind("text-xl text-white")}>Decline</Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
 
             <View style={tailwind(' bg-black absolute bottom-8 w-96 p-6 rounded-xl flex flex-col justify-center items-center mx-5')}>
 
