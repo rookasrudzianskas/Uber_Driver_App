@@ -13,8 +13,12 @@ const NewOrderPopup = ({ newOrder, onAccept, onDecline, duration, distance }) =>
     return (
         <>
             <View style={tailwind("absolute top-12 flex flex-row bg-black py-2 px-5 rounded-full left-5")}>
-                <Entypo name="cross" size={24} color="white" />
-                <Text style={tailwind("text-xl text-white")}>Decline</Text>
+                <TouchableOpacity onPress={onDecline} activeOpacity={0.8}>
+                    <View style={tailwind("flex flex-row")}>
+                        <Entypo name="cross" size={24} color="white" />
+                        <Text style={tailwind("text-xl text-white")}>Decline</Text>
+                    </View>
+                </TouchableOpacity>
             </View>
 
 
