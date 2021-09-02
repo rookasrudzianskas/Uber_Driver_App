@@ -52,7 +52,8 @@ const HomeScreen = () => {
 
     const onLocationFound = (result) => {
         console.log("Direction found");
-        console.log(result);
+        console.log(result.distance);
+        console.log(result.duration);
     }
 
     const onUserLocationChange = ({ nativeEvent }) => {
