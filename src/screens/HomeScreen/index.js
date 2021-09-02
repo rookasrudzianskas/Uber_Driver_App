@@ -54,6 +54,14 @@ const HomeScreen = () => {
         console.log("Direction found");
         console.log(result.distance);
         console.log(result.duration);
+        if(order) {
+            setOrder({
+                ...order,
+                distance: result.distance,
+                duration: result.duration,
+            })
+
+        }
     }
 
     const onUserLocationChange = ({ nativeEvent }) => {
@@ -76,11 +84,11 @@ const HomeScreen = () => {
                 <View style={tailwind("flex flex-col items-center mr-8")}>
                     <View style={tailwind("flex flex-row items-center")}>
                         <View style={tailwind("flex flex-row mx-8 items-center")}>
-                            <Text style={tailwind("text-xl font-bold mr-5")}>1 min</Text>
+                            <Text style={tailwind("text-xl font-bold mr-5")}>{order?.duration} min</Text>
                             <View styles={tailwind("")}>
                                 <MaterialIcons name="account-circle" size={40} color="#276EF1" />
                             </View>
-                            <Text style={tailwind("text-xl font-bold ml-5")}>0.2 mi</Text>
+                            <Text style={tailwind("text-xl font-bold ml-5")}>{order?.distance} mi</Text>
                         </View>
                     </View>
                     <Text style={tailwind('text-xl font-medium text-gray-800')}>Picking up {order.user.name}</Text>
