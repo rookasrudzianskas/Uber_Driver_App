@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Dimensions, Text, TouchableOpacity, View} from "react-native";
 import styles from "./styles";
 import tailwind from "tailwind-rn";
@@ -49,12 +49,20 @@ const HomeScreen = () => {
         setNewOrder(null);
     }
 
-    const onUserLocationChange = (event) => {
+    const [locationSomething, setLocationSomething] = useState(null);
+
+    const onUserLocationChange = ({ nativeEvent }) => {
+        // const setLocationSomething = nativeEvent.location;
         if(myPosition){
             return;
         }
-        setMyPosition(event.nativeEvent.coordinate);
+        setMyPosition(nativeEvent.coordinate);
+        // return setLocationSomething;
     }
+
+    // useEffect(() =>  {
+    //     onUserLocationChange();
+    // }, [locationSomething]);
 
     const renderBottomTitle = () => {
 
