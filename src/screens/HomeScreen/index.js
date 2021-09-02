@@ -49,6 +49,16 @@ const HomeScreen = () => {
         setNewOrder(null);
     }
 
+    const renderBottomTitle = () => {
+        if(isOnline ) {
+           return (
+               <Text style={tailwind('text-xl font-medium text-gray-800')}>You are online</Text>
+           )
+        }
+
+            return <Text style={tailwind('text-xl font-medium text-gray-800')}>You are offline</Text>
+    }
+
     return (
             <View style={styles.container}>
 
@@ -107,11 +117,7 @@ const HomeScreen = () => {
                         <Octicons name="settings" size={27} color="#4a4a4a" />
                     </View>
                     <View style={tailwind('flex flex-grow')}>
-                        {isOnline ? (
-                            <Text style={tailwind('text-xl font-medium text-gray-800')}>You are online</Text>
-                        ) : (
-                            <Text style={tailwind('text-xl font-medium text-gray-800')}>You are offline</Text>
-                        )}
+                        {renderBottomTitle}
                     </View>
                     <View style={tailwind('flex')}>
                         <MaterialIcons name="menu-open" size={27} color="#4a4a4a" />
