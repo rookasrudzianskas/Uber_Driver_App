@@ -32,7 +32,8 @@ const HomeScreen = () => {
         destLongitude: 25.3022093,
 
         user: {
-            rating: 5.01
+            rating: 5.01,
+            name: "Rokas"
         }
     });
 
@@ -50,13 +51,28 @@ const HomeScreen = () => {
     }
 
     const renderBottomTitle = () => {
+
+        if(order) {
+            return (
+                <View>
+                    <Text style={tailwind('text-xl font-medium text-gray-800')}>Picking up {order.user.name}</Text>
+                </View>
+            )
+        }
+
         if(isOnline ) {
            return (
-               <Text style={tailwind('text-xl font-medium text-gray-800')}>You are online</Text>
+               <View>
+                    <Text style={tailwind('text-xl font-medium text-gray-800')}>You are online</Text>
+               </View>
            )
         }
 
-            return <Text style={tailwind('text-xl font-medium text-gray-800')}>You are offline</Text>
+            return (
+                <View>
+                    <Text style={tailwind('text-xl font-medium text-gray-800')}>You are offline</Text>
+                </View>
+                )
     }
 
     return (
