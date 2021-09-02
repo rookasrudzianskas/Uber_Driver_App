@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
         borderRadius: 50,
     },
     something: {
-        bottom: 550,
-        right: -39,
+        bottom: 880,
+        right: 100,
     }
 });
 

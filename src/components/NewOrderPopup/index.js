@@ -11,19 +11,24 @@ const NewOrderPopup = (props) => {
         console.log("Something");
     }
 
+    const onAccept = () => {
+        console.log("Accept");
+    }
+
     return (
         <>
 
 
-            <View style={tailwind('bg-black absolute bottom-8 w-96 p-6 rounded-xl flex flex-col justify-center items-center justify-between')}>
                 <View style={tailwind("flex")}>
-                <TouchableOpacity activeOpacity={0.8} onPress={onDecline}>
+                <TouchableOpacity onClick={onAccept} activeOpacity={0.8} onPress={onDecline}>
                     <View style={[styles.something, tw`z-50 absolute flex flex-row right-0 bg-black rounded-full px-5 py-2 items-center`]}>
                         <Entypo name="cross" size={24} color="white" />
                         <Text style={tailwind("text-xl text-white")}>Decline</Text>
                     </View>
                 </TouchableOpacity>
                 </View>
+
+            <View style={tailwind('bg-black absolute bottom-8 w-96 p-6 rounded-xl flex flex-col justify-center items-center justify-between')}>
                 <View style={tailwind("bg-black flex flex-row")}>
                     <View style={tailwind(" flex flex-row items-center mb-4")}>
                         <View style={tailwind("flex")}>
