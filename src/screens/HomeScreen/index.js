@@ -49,7 +49,11 @@ const HomeScreen = () => {
         setNewOrder(null);
     }
 
-    const [locationSomething, setLocationSomething] = useState(null);
+
+    const onDirectionFound = (event) => {
+        console.log("Direction found");
+        console.log(event);
+    }
 
     const onUserLocationChange = ({ nativeEvent }) => {
         // const setLocationSomething = nativeEvent.location;
@@ -113,6 +117,11 @@ const HomeScreen = () => {
                         origin={myPosition}
                         strokeWidth={5}
                         strokeColor={"black"}
+                        onReady={result => {
+                            // console.log(`Distance: ${result.distance} km`)
+                            // console.log(`Duration: ${result.duration} min.`)
+                        }}
+
                         destination={{
                             latitude: order.originLatitude,
                             longitude: order.originLongitude,
