@@ -94,6 +94,8 @@ const HomeScreen = () => {
                     {order && (
                     <MapViewDirections
                         origin={origin}
+                        strokeWidth={5}
+                        strokeColor={"black"}
                         destination={{
                             latitude: order.originLatitude,
                             longitude: order.originLongitude,
