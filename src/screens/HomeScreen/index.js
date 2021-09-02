@@ -50,9 +50,9 @@ const HomeScreen = () => {
     }
 
 
-    const onDirectionFound = (event) => {
+    const onLocationFound = (result) => {
         console.log("Direction found");
-        console.log(event);
+        console.log(result);
     }
 
     const onUserLocationChange = ({ nativeEvent }) => {
@@ -118,6 +118,7 @@ const HomeScreen = () => {
                         strokeWidth={5}
                         strokeColor={"black"}
                         onReady={result => {
+                            onLocationFound(result);
                             // console.log(`Distance: ${result.distance} km`)
                             // console.log(`Duration: ${result.duration} min.`)
                         }}
