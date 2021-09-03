@@ -24,11 +24,11 @@ const HomeScreen = () => {
     const [newOrder, setNewOrder] = useState({
         id: '1',
         type: 'UberX',
-        originLatitude: 54.7866371470286,
-        originLongitude: 25.346735332597593,
+        originLatitude: 54.78376120422243,
+        originLongitude: 25.34514614695383,
 
-        destLatitude: 54.7855097,
-        destLongitude: 25.3022093,
+        destLatitude: 54.78619884006051,
+        destLongitude: 25.343176959208805,
 
         user: {
             rating: 5.01,
@@ -56,7 +56,7 @@ const HomeScreen = () => {
                 ...order,
                 distance: event.distance,
                 duration: event.duration,
-                pickedUp: order.pickedUp || event.distance < 7.6,
+                pickedUp: order.pickedUp || event.distance < 0.2,
             })
         }
     }
@@ -87,7 +87,7 @@ const HomeScreen = () => {
 
     const renderBottomTitle = () => {
 
-        if(order && order.distance < 7.6) {
+        if(order && order.distance < 0.2) {
             return (
                 <View style={tailwind("flex flex-col items-center mr-8")}>
                     <View style={tailwind("flex flex-row items-center")}>
