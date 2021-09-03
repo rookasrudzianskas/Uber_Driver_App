@@ -18,8 +18,7 @@ const HomeScreen = () => {
     const windowWidth = Dimensions.get('window').width;
     const [isOnline, setIsOnline] = useState(false);
     const [myPosition, setMyPosition] = useState(null);
-
-    const [order, setOrder] = useState(null);
+    const [order, setOrder] = useState(null)
 
     const [newOrder, setNewOrder] = useState({
         id: '1',
@@ -36,10 +35,6 @@ const HomeScreen = () => {
         }
     });
 
-    const onGo = () => {
-        setIsOnline(!isOnline);
-    }
-
     const onDecline = () => {
         setNewOrder(null);
     }
@@ -49,48 +44,43 @@ const HomeScreen = () => {
         setNewOrder(null);
     }
 
+    const onGoPress = () => {
+        setIsOnline(!isOnline);
+    }
 
-    const onLocationFound = (result) => {
-        if(order) {
+    const onUserLocationChange = (event) => {
+        setMyPosition(event.nativeEvent.coordinate);
+    }
+
+    const onDirectionFound = (event) => {
+        console.log("Direction found: ", event);
+        if (order) {
             setOrder({
                 ...order,
-                distance: result.distance,
-                duration: result.duration,
+                distance: event.distance,
+                duration: event.duration,
+                pickedUp: order.pickedUp || event.distance < 0.2,
+                isFinished: order.pickedUp && event.distance < 0.2,
             })
-
         }
     }
 
-
-    useEffect(() =>  {
-        console.log("DONNNE")
-        console.log(order?.distance);
-        if(order && order.distance && order.distance < 0.6) {
-            console.log("I am working yyyyyyeee")
-            // setOrder({
-            //     ...order,
-            //     pickedUp: true,
-            // });
-            console.log('This is new Order', order);
+    const getDestination = () => {
+        if (order && order.pickedUp) {
+            return {
+                latitude: order.destLatitude,
+                longitude: order.destLongitude,
+            }
         }
-    }, [order]);
-
-    const onUserLocationChange = ({ nativeEvent }) => {
-        // const setLocationSomething = nativeEvent.location;
-        // if(myPosition){
-        //     return;
-        // }
-        setMyPosition(nativeEvent.coordinate);
-        // return setLocationSomething;
+        return {
+            latitude: order.originLatitude,
+            longitude: order.originLongitude,
+        }
     }
-
-    // useEffect(() =>  {
-    //     onUserLocationChange();
-    // }, [locationSomething]);
 
     const renderBottomTitle = () => {
 
-        // console.log(order?.pickedUp);
+        // // console.log(order?.pickedUp);
         // if(order && order.pickedUp && order.distance < 0.2) {
         //     return (
         //         <View style={tailwind("flex flex-col items-center mr-8")}>
@@ -153,18 +143,10 @@ const HomeScreen = () => {
                     {order && (
                     <MapViewDirections
                         origin={myPosition}
+                        onReady={onDirectionFound}
+                        destination={getDestination()}
                         strokeWidth={5}
-                        strokeColor={"black"}
-                        onReady={result => {
-                            onLocationFound(result);
-                            // console.log(`Distance: ${result.distance} km`)
-                            // console.log(`Duration: ${result.duration} min.`)
-                        }}
-
-                        destination={{
-                            latitude: order.originLatitude,
-                            longitude: order.originLongitude,
-                        }}
+                        strokeColor="black"
                         apikey={GOOGLE_MAPS_APIKEY}
                     />
                     )}
@@ -188,7 +170,7 @@ const HomeScreen = () => {
                         <MaterialCommunityIcons name="comment-plus" size={24} color="#4a4a4a" />
                     </TouchableOpacity>
 
-                    <TouchableOpacity activeOpacity={0.8} onPress={onGo} style={[styles.roundButton2]}>
+                    <TouchableOpacity activeOpacity={0.8} onPress={onGoPress} style={[styles.roundButton2]}>
                         <Text style={tailwind("text-3xl font-bold text-white")}>
                             {
                                 isOnline ? 'END' : 'GO'
