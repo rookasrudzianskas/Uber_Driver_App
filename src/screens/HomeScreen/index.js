@@ -57,6 +57,7 @@ const HomeScreen = () => {
                 distance: event.distance,
                 duration: event.duration,
                 pickedUp: order.pickedUp || event.distance < 0.2,
+                isFinished: order.pickedUp && event.distance < 0.2,
             })
         }
     }
