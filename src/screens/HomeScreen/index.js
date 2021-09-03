@@ -50,13 +50,13 @@ const HomeScreen = () => {
     }
 
 
-    const onDirectionFound = (result) => {
+    const onDirectionFound = (event) => {
         if(order) {
             setOrder({
                 ...order,
-                distance: result.distance,
-                duration: result.duration,
-                pickedUp: result.distance < 0.2,
+                distance: event.distance,
+                duration: event.duration,
+                pickedUp: event.distance < 0.2,
             })
         }
     }
