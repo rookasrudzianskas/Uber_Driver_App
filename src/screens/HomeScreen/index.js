@@ -56,7 +56,7 @@ const HomeScreen = () => {
                 ...order,
                 distance: event.distance,
                 duration: event.duration,
-                pickedUp: order.pickedUp || event.distance < 0.8,
+                pickedUp: order.pickedUp || event.distance < 0.4,
             })
         }
     }
@@ -87,7 +87,7 @@ const HomeScreen = () => {
 
     const renderBottomTitle = () => {
 
-        if(order && order.distance < 0.8) {
+        if(order && order.distance < 0.4) {
             return (
                 <View style={tailwind("flex flex-col items-center mr-8")}>
                     <View style={tailwind("flex flex-row items-center")}>
