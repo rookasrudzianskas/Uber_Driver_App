@@ -88,6 +88,24 @@ const HomeScreen = () => {
 
     const renderBottomTitle = () => {
 
+        if(order && order.isFinished) {
+            return (
+                <View style={tailwind("flex flex-col items-center mr-8")}>
+                    <View style={tailwind("flex flex-row items-center")}>
+                        <View style={tailwind("flex flex-row mx-8 items-center mr-6")}>
+                            <Text style={tailwind("text-sm font-bold mr-5")}>{order.duration ? (order.duration).toFixed(0) : '0'} min</Text>
+                            <View styles={tailwind("")}>
+                                <MaterialIcons name="account-circle" size={20} color="#D44333" />
+                            </View>
+                            <Text style={tailwind("text-sm font-bold ml-5")}>{order.distance ? (order.distance).toFixed(1) : '0'} km</Text>
+                        </View>
+                    </View>
+                    <Text style={tailwind('text-xl font-medium text-white ml-4 bg-red-500 p-5')}>Complete {order?.type || "Uber"}</Text>
+                </View>
+                // console.log("The render Bottom Title works perfectly");
+            )
+        }
+
         if(order && order.distance < 0.2) {
             return (
                 <View style={tailwind("flex flex-col items-center mr-8")}>
