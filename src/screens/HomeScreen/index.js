@@ -50,7 +50,7 @@ const HomeScreen = () => {
     }
 
 
-    const onLocationFound = (result) => {
+    const onDirectionFound = (result) => {
         if(order) {
             setOrder({
                 ...order,
@@ -146,11 +146,7 @@ const HomeScreen = () => {
                         origin={myPosition}
                         strokeWidth={5}
                         strokeColor={"black"}
-                        onReady={result => {
-                            onLocationFound(result);
-                            // console.log(`Distance: ${result.distance} km`)
-                            // console.log(`Duration: ${result.duration} min.`)
-                        }}
+                        onReady={onDirectionFound}
 
                         destination={{
                             latitude: order.originLatitude,
