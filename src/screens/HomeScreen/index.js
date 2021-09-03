@@ -63,14 +63,11 @@ const HomeScreen = () => {
 
 
     useEffect(() =>  {
-        console.log("DONNNE")
-        if(order && order.distance && order.distance < 0.3) {
-            console.log("I am working yyyyyyeee");
+        if(order && order.distance && order.distance < 0.2) {
             setOrder({
                 ...order,
                 pickedUp: true,
             })
-            console.log('This is new Order', order);
         }
     }, [order]);
 
@@ -84,22 +81,22 @@ const HomeScreen = () => {
 
     const renderBottomTitle = () => {
 
-        if(order && order.pickedUp && order.distance < 0.2) {
-            // return (
-            //     <View style={tailwind("flex flex-col items-center mr-8")}>
-            //         <View style={tailwind("flex flex-row items-center")}>
-            //             <View style={tailwind("flex flex-row mx-8 items-center mr-6")}>
-            //                 <Text style={tailwind("text-xl font-bold mr-5")}>{order.duration ? (order.duration).toFixed(0) : '0'} min</Text>
-            //                 <View styles={tailwind("")}>
-            //                     <MaterialIcons name="account-circle" size={40} color="#D44333" />
-            //                 </View>
-            //                 <Text style={tailwind("text-xl font-bold ml-5")}>{order.distance ? (order.distance).toFixed(1) : '0'} km</Text>
-            //             </View>
-            //         </View>
-            //         <Text style={tailwind('text-xl font-medium text-gray-800 ml-4')}>Dropping off {order.user.name}</Text>
-            //     </View>
-            console.log("The render Bottom Title works perfectly");
-            // )
+        if(order && order.distance < 0.2) {
+            return (
+                <View style={tailwind("flex flex-col items-center mr-8")}>
+                    <View style={tailwind("flex flex-row items-center")}>
+                        <View style={tailwind("flex flex-row mx-8 items-center mr-6")}>
+                            <Text style={tailwind("text-xl font-bold mr-5")}>{order.duration ? (order.duration).toFixed(0) : '0'} min</Text>
+                            <View styles={tailwind("")}>
+                                <MaterialIcons name="account-circle" size={40} color="#D44333" />
+                            </View>
+                            <Text style={tailwind("text-xl font-bold ml-5")}>{order.distance ? (order.distance).toFixed(1) : '0'} km</Text>
+                        </View>
+                    </View>
+                    <Text style={tailwind('text-xl font-medium text-gray-800 ml-4')}>Dropping off {order.user.name}</Text>
+                </View>
+            // console.log("The render Bottom Title works perfectly");
+            )
         }
 
         if(order) {
