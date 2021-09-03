@@ -56,8 +56,8 @@ const HomeScreen = () => {
                 ...order,
                 distance: result.distance,
                 duration: result.duration,
+                pickedUp: result.distance < 0.2,
             })
-
         }
     }
 
