@@ -88,7 +88,7 @@ const HomeScreen = () => {
 
     const renderBottomTitle = () => {
 
-        if(order && order.isFinished) {
+        if(order && order.isFinished < 0.2) {
             return (
                 <View style={tailwind("flex flex-col items-center mr-8")}>
                     <View style={tailwind("flex flex-row items-center")}>
@@ -100,7 +100,9 @@ const HomeScreen = () => {
                             <Text style={tailwind("text-sm font-bold ml-5")}>{order.distance ? (order.distance).toFixed(1) : '0'} km</Text>
                         </View>
                     </View>
-                    <Text style={tailwind('text-xl font-medium text-white ml-4 bg-red-500 p-5')}>Complete {order?.type || "Uber"}</Text>
+                    <TouchableOpacity activeOpacity={0.8}>
+                    <Text style={tailwind('text-xl text-white ml-4 bg-red-500 px-5 py-3 mt-2 mr-2 mb-2 font-bold')}>Complete {order?.type || "Uber"} >>></Text>
+                    </TouchableOpacity>
                 </View>
                 // console.log("The render Bottom Title works perfectly");
             )
