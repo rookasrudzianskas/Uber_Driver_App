@@ -63,7 +63,7 @@ const HomeScreen = () => {
 
 
     useEffect(() =>  {
-        if(order && order.distance && order.distance < 0.2) {
+        if(order && order.distance && order.distance < 0.9) {
             setOrder({
                 ...order,
                 pickedUp: true,
@@ -78,10 +78,24 @@ const HomeScreen = () => {
         setMyPosition(nativeEvent.coordinate);
     }
 
+    const getDestination = () => {
+
+        if(order && order.pickedUp) {
+            return {
+                latitude: order.destLatitude,
+                longitude: order.destLongitude,
+            }
+        }
+
+        return {
+            latitude: order.originLatitude,
+            longitude: order.originLongitude,
+        }
+    }
 
     const renderBottomTitle = () => {
 
-        if(order && order.distance < 0.2) {
+        if(order && order.distance < 0.9) {
             return (
                 <View style={tailwind("flex flex-col items-center mr-8")}>
                     <View style={tailwind("flex flex-row items-center")}>
@@ -148,10 +162,7 @@ const HomeScreen = () => {
                         strokeColor={"black"}
                         onReady={onDirectionFound}
 
-                        destination={{
-                            latitude: order.originLatitude,
-                            longitude: order.originLongitude,
-                        }}
+                        destination={getDestination()}
                         apikey={GOOGLE_MAPS_APIKEY}
                     />
                     )}
