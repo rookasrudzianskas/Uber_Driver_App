@@ -50,8 +50,13 @@ const HomeScreen = () => {
     }
 
 
+    const onUserLocationChange = (event) => {
+        setMyPosition(event.nativeEvent.coordinate);
+    }
+
     const onDirectionFound = (event) => {
-        if(order) {
+        console.log("Direction found: ", event);
+        if (order) {
             setOrder({
                 ...order,
                 distance: event.distance,
@@ -62,24 +67,13 @@ const HomeScreen = () => {
         }
     }
 
-
-
-    const onUserLocationChange = ({ nativeEvent }) => {
-        if(myPosition){
-            return;
-        }
-        setMyPosition(nativeEvent.coordinate);
-    }
-
     const getDestination = () => {
-
-        if(order && order.pickedUp) {
+        if (order && order.pickedUp) {
             return {
                 latitude: order.destLatitude,
                 longitude: order.destLongitude,
             }
         }
-
         return {
             latitude: order.originLatitude,
             longitude: order.originLongitude,
@@ -88,7 +82,7 @@ const HomeScreen = () => {
 
     const renderBottomTitle = () => {
 
-        if(order && order.isFinished < 0.2) {
+        if(order && order.isFinished) {
             return (
                 <View style={tailwind("flex flex-col items-center mr-8")}>
                     <View style={tailwind("flex flex-row items-center")}>
