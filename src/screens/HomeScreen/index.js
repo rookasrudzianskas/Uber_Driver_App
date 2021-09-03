@@ -18,7 +18,8 @@ const HomeScreen = () => {
     const windowWidth = Dimensions.get('window').width;
     const [isOnline, setIsOnline] = useState(false);
     const [myPosition, setMyPosition] = useState(null);
-    const [order, setOrder] = useState(null)
+
+    const [order, setOrder] = useState(null);
 
     const [newOrder, setNewOrder] = useState({
         id: '1',
@@ -35,6 +36,10 @@ const HomeScreen = () => {
         }
     });
 
+    const onGo = () => {
+        setIsOnline(!isOnline);
+    }
+
     const onDecline = () => {
         setNewOrder(null);
     }
@@ -44,59 +49,58 @@ const HomeScreen = () => {
         setNewOrder(null);
     }
 
-    const onGoPress = () => {
-        setIsOnline(!isOnline);
-    }
 
-    const onUserLocationChange = (event) => {
-        setMyPosition(event.nativeEvent.coordinate);
-    }
-
-    const onDirectionFound = (event) => {
-        console.log("Direction found: ", event);
-        if (order) {
+    const onLocationFound = (result) => {
+        if(order) {
             setOrder({
                 ...order,
-                distance: event.distance,
-                duration: event.duration,
-                pickedUp: order.pickedUp || event.distance < 0.2,
-                isFinished: order.pickedUp && event.distance < 0.2,
+                distance: result.distance,
+                duration: result.duration,
             })
+
         }
     }
 
-    const getDestination = () => {
-        if (order && order.pickedUp) {
-            return {
-                latitude: order.destLatitude,
-                longitude: order.destLongitude,
-            }
+
+    useEffect(() =>  {
+        console.log("DONNNE")
+        if(order && order.distance && order.distance < 0.3) {
+            console.log("I am working yyyyyyeee");
+            setOrder({
+                ...order,
+                pickedUp: true,
+            })
+            console.log('This is new Order', order);
         }
-        return {
-            latitude: order.originLatitude,
-            longitude: order.originLongitude,
+    }, [order]);
+
+    const onUserLocationChange = ({ nativeEvent }) => {
+        if(myPosition){
+            return;
         }
+        setMyPosition(nativeEvent.coordinate);
     }
+
 
     const renderBottomTitle = () => {
 
-        // // console.log(order?.pickedUp);
-        // if(order && order.pickedUp && order.distance < 0.2) {
-        //     return (
-        //         <View style={tailwind("flex flex-col items-center mr-8")}>
-        //             <View style={tailwind("flex flex-row items-center")}>
-        //                 <View style={tailwind("flex flex-row mx-8 items-center mr-6")}>
-        //                     <Text style={tailwind("text-xl font-bold mr-5")}>{order.duration ? (order.duration).toFixed(0) : '0'} min</Text>
-        //                     <View styles={tailwind("")}>
-        //                         <MaterialIcons name="account-circle" size={40} color="#D44333" />
-        //                     </View>
-        //                     <Text style={tailwind("text-xl font-bold ml-5")}>{order.distance ? (order.distance).toFixed(1) : '0'} km</Text>
-        //                 </View>
-        //             </View>
-        //             <Text style={tailwind('text-xl font-medium text-gray-800 ml-4')}>Dropping off {order.user.name}</Text>
-        //         </View>
-        //     )
-        // }
+        if(order && order.pickedUp && order.distance < 0.2) {
+            // return (
+            //     <View style={tailwind("flex flex-col items-center mr-8")}>
+            //         <View style={tailwind("flex flex-row items-center")}>
+            //             <View style={tailwind("flex flex-row mx-8 items-center mr-6")}>
+            //                 <Text style={tailwind("text-xl font-bold mr-5")}>{order.duration ? (order.duration).toFixed(0) : '0'} min</Text>
+            //                 <View styles={tailwind("")}>
+            //                     <MaterialIcons name="account-circle" size={40} color="#D44333" />
+            //                 </View>
+            //                 <Text style={tailwind("text-xl font-bold ml-5")}>{order.distance ? (order.distance).toFixed(1) : '0'} km</Text>
+            //             </View>
+            //         </View>
+            //         <Text style={tailwind('text-xl font-medium text-gray-800 ml-4')}>Dropping off {order.user.name}</Text>
+            //     </View>
+            console.log("The render Bottom Title works perfectly");
+            // )
+        }
 
         if(order) {
             return (
@@ -143,10 +147,18 @@ const HomeScreen = () => {
                     {order && (
                     <MapViewDirections
                         origin={myPosition}
-                        onReady={onDirectionFound}
-                        destination={getDestination()}
                         strokeWidth={5}
-                        strokeColor="black"
+                        strokeColor={"black"}
+                        onReady={result => {
+                            onLocationFound(result);
+                            // console.log(`Distance: ${result.distance} km`)
+                            // console.log(`Duration: ${result.duration} min.`)
+                        }}
+
+                        destination={{
+                            latitude: order.originLatitude,
+                            longitude: order.originLongitude,
+                        }}
                         apikey={GOOGLE_MAPS_APIKEY}
                     />
                     )}
@@ -170,7 +182,7 @@ const HomeScreen = () => {
                         <MaterialCommunityIcons name="comment-plus" size={24} color="#4a4a4a" />
                     </TouchableOpacity>
 
-                    <TouchableOpacity activeOpacity={0.8} onPress={onGoPress} style={[styles.roundButton2]}>
+                    <TouchableOpacity activeOpacity={0.8} onPress={onGo} style={[styles.roundButton2]}>
                         <Text style={tailwind("text-3xl font-bold text-white")}>
                             {
                                 isOnline ? 'END' : 'GO'
