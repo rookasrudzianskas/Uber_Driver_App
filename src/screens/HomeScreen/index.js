@@ -24,8 +24,8 @@ const HomeScreen = () => {
     const [newOrder, setNewOrder] = useState({
         id: '1',
         type: 'UberX',
-        originLatitude: 54.7223604,
-        originLongitude: 25.3022093,
+        originLatitude: 54.78503185166364,
+        originLongitude: 25.34901928924432,
 
         destLatitude: 54.7855097,
         destLongitude: 25.3022093,
@@ -65,12 +65,13 @@ const HomeScreen = () => {
     useEffect(() =>  {
         console.log("DONNNE")
         console.log(order?.distance);
-        if(order && order.distance && order.distance > 0.2) {
-            console.log("I am working")
-            setOrder({
-                ...order,
-                pickedUp: true,
-            });
+        if(order && order.distance && order.distance < 0.6) {
+            console.log("I am working yyyyyyeee")
+            // setOrder({
+            //     ...order,
+            //     pickedUp: true,
+            // });
+            console.log('This is new Order', order);
         }
     }, [order]);
 
@@ -89,7 +90,7 @@ const HomeScreen = () => {
 
     const renderBottomTitle = () => {
 
-        // console.log(order.pickedUp);
+        // console.log(order?.pickedUp);
         // if(order && order.pickedUp && order.distance < 0.2) {
         //     return (
         //         <View style={tailwind("flex flex-col items-center mr-8")}>
