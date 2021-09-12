@@ -233,4 +233,4 @@ const HomeScreen = () => {
 
 export default HomeScreen;
 
-// todays tailwind css
+// today's tailwind css
