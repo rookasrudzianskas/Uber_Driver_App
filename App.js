@@ -6,6 +6,9 @@ import HomeScreen from "./src/screens/HomeScreen";
 import NewOrderPopupScreen from "./src/screens/NewOrderPopupScreen";
 import {Amplify} from "aws-amplify";
 import config from "./src/aws-exports";
+import {withAuthenticator} from "aws-amplify-react-native";
+// import { withAuthenticator } from 'aws-amplify-react-native';
+
 
 Amplify.configure(config);
 
@@ -21,4 +24,4 @@ const App = () => {
 
 
 
-export default App;
+export default withAuthenticator(App);
