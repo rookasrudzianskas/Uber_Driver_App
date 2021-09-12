@@ -55,7 +55,7 @@ const HomeScreen = () => {
     }
 
     const onDirectionFound = (event) => {
-        console.log("Direction found: ", event);
+        // console.log("Direction found: ", event);
         if (order) {
             setOrder({
                 ...order,
@@ -232,3 +232,5 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
+
+// integration with the same amplify project
