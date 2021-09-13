@@ -89,8 +89,6 @@ const HomeScreen = () => {
 
 
     const onUserLocationChange = async (event) => {
-        setMyPosition(event.nativeEvent.coordinate);
-
         // console.log(event.nativeEvent.coordinate);
 
         // update the car and set it to active
@@ -226,7 +224,10 @@ const HomeScreen = () => {
                 >
                     {order && (
                     <MapViewDirections
-                        origin={myPosition}
+                        origin={{
+                            latitude: car?.latitude,
+                            longitude: car?.longitude,
+                        }}
                         strokeWidth={5}
                         strokeColor={"black"}
                         onReady={onDirectionFound}
