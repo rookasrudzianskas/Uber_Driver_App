@@ -18,9 +18,11 @@ const App = () => {
         const updateUserCar = async () => {
             try {
                 // get authenticated user
-                    const authenticatedUser = await Auth.currentAuthenticatedUser({ bypassCache: true })
+                    const authenticatedUser = await Auth.currentAuthenticatedUser({ bypassCache: true });
                 // check if user has a car
-
+                    if(!authenticatedUser) {
+                        return;
+                    }
                 // if not create a new car for the user
 
             } catch (e) {
