@@ -9,7 +9,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import tw from "tailwind-react-native-classnames";
 import NewOrderPopup from "../../components/NewOrderPopup";
 import {API, Auth, graphqlOperation} from "aws-amplify";
-import {getCar} from "../../graphql/queries";
+import {getCar, listOrders} from "../../graphql/queries";
 import {updateCar} from "../../graphql/mutations";
 
 
@@ -69,7 +69,7 @@ const HomeScreen = () => {
 
     const fetchOrders = async () => {
         try {
-
+            const ordersData = await API.graphql(graphqlOperation(listOrders));
         } catch (err) {
             console.log(err);
         }
