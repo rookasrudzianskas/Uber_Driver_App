@@ -10,6 +10,7 @@ import tw from "tailwind-react-native-classnames";
 import NewOrderPopup from "../../components/NewOrderPopup";
 import {API, Auth, graphqlOperation} from "aws-amplify";
 import {getCar} from "../../graphql/queries";
+import {updateCar} from "../../graphql/mutations";
 
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyBmXijpsVGRk39hnHdg6aWoeZ_Uaj81B-Y';
@@ -57,9 +58,23 @@ const HomeScreen = () => {
         fetchCar();
     }, []);
 
-    const onGo = () => {
+    const onGo = async () => {
         setIsOnline(!isOnline);
         // update the car and set it to active
+        try {
+            const userData = await Auth.currentAuthenticatedUser();
+            const input = {
+                id: userData.attributes.sub,
+                isActive: !userData.isActive,
+            };
+            const updatedCarData = await API.graphql(graphqlOperation(updateCar, {
+                input: input,
+            }));
+
+            console.log("This is updated car info", updatedCarData);
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     const onDecline = () => {
