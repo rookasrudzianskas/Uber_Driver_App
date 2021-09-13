@@ -4,7 +4,7 @@ import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import tailwind from 'tailwind-rn';
 import HomeScreen from "./src/screens/HomeScreen";
 import NewOrderPopupScreen from "./src/screens/NewOrderPopupScreen";
-import {Amplify} from "aws-amplify";
+import {Amplify, Auth} from "aws-amplify";
 import config from "./src/aws-exports";
 import {withAuthenticator} from "aws-amplify-react-native";
 // import { withAuthenticator } from 'aws-amplify-react-native';
@@ -18,6 +18,10 @@ const App = () => {
         const updateUserCar = async () => {
             try {
                 // get authenticated user
+                    const authenticatedUser = await Auth.currentAuthenticatedUser({ bypassCache: true })
+                // check if user has a car
+
+                // if not create a new car for the user
 
             } catch (e) {
 
