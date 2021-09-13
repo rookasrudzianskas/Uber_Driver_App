@@ -83,6 +83,7 @@ const HomeScreen = () => {
     }
 
     const onAccept = (newOrder) => {
+        // @TODO for the application
         setOrder(newOrder);
         setNewOrders(newOrders.slice(1));
     }
