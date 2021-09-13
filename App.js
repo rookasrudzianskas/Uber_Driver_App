@@ -34,6 +34,7 @@ const App = () => {
                 // console.log("This is car", carData);
                     if(!!carData.data.getCar) {
                         console.log('user already has a car assigned');
+                        return;
                     }
                 // if not create a new car for the user
 
@@ -49,6 +50,7 @@ const App = () => {
 
             } catch (e) {
                 console.log(e);
+            //    new shit
             }
         };
 
