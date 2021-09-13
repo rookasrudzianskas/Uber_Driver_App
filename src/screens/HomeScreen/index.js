@@ -94,7 +94,7 @@ const HomeScreen = () => {
                 input
             }));
 
-            setOrder(orderData);
+            setOrder(orderData.data.updateOrder);
         } catch (e) {
             console.log(e);
         }
