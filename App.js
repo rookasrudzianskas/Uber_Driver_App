@@ -13,7 +13,12 @@ import {createCar} from "./src/graphql/mutations";
 // import { withAuthenticator } from 'aws-amplify-react-native';
 
 
-Amplify.configure(config);
+Amplify.configure({
+    ...config,
+    Analytics: {
+        disabled: true,
+    },
+});
 
 const App = () => {
 
