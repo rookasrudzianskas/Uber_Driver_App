@@ -71,7 +71,8 @@ const HomeScreen = () => {
                 input: input,
             }));
 
-            console.log("This is updated car info", updatedCarData);
+            // console.log("This is updated car info", updatedCarData);
+            setCar(updatedCarData.data.updateCar);
         } catch (err) {
             console.log(err);
         }
