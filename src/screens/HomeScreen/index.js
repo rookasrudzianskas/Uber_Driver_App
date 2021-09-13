@@ -67,6 +67,14 @@ const HomeScreen = () => {
         }
     }
 
+    const fetchOrders = async () => {
+        try {
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     useEffect(() => {
         fetchCar();
     }, []);
