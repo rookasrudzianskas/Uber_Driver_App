@@ -24,7 +24,7 @@ const HomeScreen = () => {
 
     const [order, setOrder] = useState(null);
 
-    const [newOrder, setNewOrder] = useState({
+    const [newOrders, setNewOrders] = useState([{
         id: '1',
         type: 'UberX',
         originLatitude: 54.78376120422243,
@@ -37,7 +37,21 @@ const HomeScreen = () => {
             rating: 5.01,
             name: "Rokas",
         }
-    });
+    },
+        {
+            id: '2',
+            type: 'UberXL',
+            originLatitude: 54.78376120422243,
+            originLongitude: 25.34514614695383,
+
+            destLatitude: 54.78619884006051,
+            destLongitude: 25.343176959208805,
+
+            user: {
+                rating: 5.01,
+                name: "Vadim",
+            }
+        }]);
 
     const fetchCar = async () => {
         try {
@@ -78,12 +92,12 @@ const HomeScreen = () => {
     }
 
     const onDecline = () => {
-        setNewOrder(null);
+        setNewOrders(newOrders.shift());
     }
 
     const onAccept = (newOrder) => {
         setOrder(newOrder);
-        setNewOrder(null);
+        setNewOrders(newOrders.shift());
     }
 
 
@@ -256,12 +270,12 @@ const HomeScreen = () => {
                 </View>
 
 
-                {newOrder && <NewOrderPopup
+                {newOrders.length > 0 && !order && <NewOrderPopup
                     onDecline={onDecline}
                     duration={2}
                     distance={0.5}
-                    onAccept={() => onAccept(newOrder)}
-                    newOrder={newOrder}
+                    onAccept={() => onAccept(newOrders[0])}
+                    newOrder={newOrders[0]}
                 />}
 
             </View>
