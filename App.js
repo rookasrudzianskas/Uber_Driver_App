@@ -4,9 +4,11 @@ import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import tailwind from 'tailwind-rn';
 import HomeScreen from "./src/screens/HomeScreen";
 import NewOrderPopupScreen from "./src/screens/NewOrderPopupScreen";
-import {Amplify, Auth} from "aws-amplify";
+import {Amplify, Auth, API, graphqlOperation} from "aws-amplify";
 import config from "./src/aws-exports";
 import {withAuthenticator} from "aws-amplify-react-native";
+import graphql from "graphql";
+import {getCarId} from "./src/graphql/queries";
 // import { withAuthenticator } from 'aws-amplify-react-native';
 
 
@@ -23,6 +25,11 @@ const App = () => {
                     if(!authenticatedUser) {
                         return;
                     }
+
+                    const carData = await API.graphql(graphqlOperation(getCarId, {
+                        id: authenticatedUser.attributes.sub
+                    }))
+
                 // if not create a new car for the user
 
             } catch (e) {
