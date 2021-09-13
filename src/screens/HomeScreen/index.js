@@ -19,6 +19,7 @@ const HomeScreen = () => {
     const destination = {latitude: 54.7223604, longitude: 25.3022093};
     const windowWidth = Dimensions.get('window').width;
     const [isOnline, setIsOnline] = useState(false);
+    const [car, setCar] = useState(null);
     const [myPosition, setMyPosition] = useState(null);
 
     const [order, setOrder] = useState(null);
@@ -44,7 +45,8 @@ const HomeScreen = () => {
             const carData = await API.graphql(graphqlOperation(getCar, {
                 id: userData.attributes.sub
             }))
-            console.log(carData);
+            // console.log(carData);
+            setCar(carData.data.getCar);
 
         } catch (err) {
             console.log(err);
