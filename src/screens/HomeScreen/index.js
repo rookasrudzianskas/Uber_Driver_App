@@ -59,6 +59,7 @@ const HomeScreen = () => {
 
     const onGo = () => {
         setIsOnline(!isOnline);
+        // update the car and set it to active
     }
 
     const onDecline = () => {
