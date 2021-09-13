@@ -19,7 +19,6 @@ const HomeScreen = () => {
     const origin = {latitude: 54.7855097, longitude: 25.3463961};
     const destination = {latitude: 54.7223604, longitude: 25.3022093};
     const windowWidth = Dimensions.get('window').width;
-    const [isOnline, setIsOnline] = useState(false);
     const [car, setCar] = useState(null);
     const [myPosition, setMyPosition] = useState(null);
 
@@ -59,7 +58,6 @@ const HomeScreen = () => {
     }, []);
 
     const onGo = async () => {
-        setIsOnline(!isOnline);
         // update the car and set it to active
         try {
             const userData = await Auth.currentAuthenticatedUser();
