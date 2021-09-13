@@ -295,5 +295,3 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
-
-// integration with the same amplify project
