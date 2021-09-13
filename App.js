@@ -7,7 +7,6 @@ import NewOrderPopupScreen from "./src/screens/NewOrderPopupScreen";
 import {Amplify, Auth, API, graphqlOperation} from "aws-amplify";
 import config from "./src/aws-exports";
 import {withAuthenticator} from "aws-amplify-react-native";
-import graphql from "graphql";
 import {getCarId} from "./src/graphql/queries";
 import {createCar} from "./src/graphql/mutations";
 // import { withAuthenticator } from 'aws-amplify-react-native';
