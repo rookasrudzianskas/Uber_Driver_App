@@ -30,7 +30,13 @@ const App = () => {
                         id: authenticatedUser.attributes.sub
                     }))
 
+                // console.log("This is car", carData);
+                    if(!!carData.data.getCar) {
+                        console.log('user already has a car assigned');
+                    }
                 // if not create a new car for the user
+
+
 
             } catch (e) {
 
