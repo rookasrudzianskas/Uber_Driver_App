@@ -36,12 +36,16 @@ const App = () => {
                     }
                 // if not create a new car for the user
 
-
+                    const newCar = {
+                        id: ,
+                        type: ,
+                        userId: ,
+                    }
 
             } catch (e) {
-
+                console.log(e);
             }
-        }
+        };
 
         updateUserCar();
 
