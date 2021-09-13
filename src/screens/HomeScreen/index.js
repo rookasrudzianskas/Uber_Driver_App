@@ -8,6 +8,8 @@ import {FontAwesome, MaterialCommunityIcons, Octicons} from '@expo/vector-icons'
 import { MaterialIcons } from '@expo/vector-icons';
 import tw from "tailwind-react-native-classnames";
 import NewOrderPopup from "../../components/NewOrderPopup";
+import {API, Auth, graphqlOperation} from "aws-amplify";
+import {getCar} from "../../graphql/queries";
 
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyBmXijpsVGRk39hnHdg6aWoeZ_Uaj81B-Y';
@@ -35,6 +37,21 @@ const HomeScreen = () => {
             name: "Rokas",
         }
     });
+
+    const fetchCar = async () => {
+        try {
+            const userData = await Auth.currentAuthenticatedUser();
+            const carData = await API.graphql(graphqlOperation(getCar, {
+                id: userData.attributes.sub
+            }))
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    useEffect(() => {
+
+    }, []);
 
     const onGo = () => {
         setIsOnline(!isOnline);
