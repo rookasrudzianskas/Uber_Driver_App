@@ -52,7 +52,7 @@ const HomeScreen = () => {
     }
 
     useEffect(() => {
-
+        fetchCar();
     }, []);
 
     const onGo = () => {
