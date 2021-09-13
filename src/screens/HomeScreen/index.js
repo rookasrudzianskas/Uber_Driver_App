@@ -43,7 +43,7 @@ const HomeScreen = () => {
     const fetchOrders = async () => {
         try {
             const ordersData = await API.graphql(graphqlOperation(listOrders, {
-                // filter: { status: { eq: 'NEW' }}
+                filter: { status: { eq: 'NEW' }}
             }));
             // console.log('This is orders data', ordersData);
             setNewOrders((ordersData.data.listOrders.items));
