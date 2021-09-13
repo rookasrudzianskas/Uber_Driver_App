@@ -13,44 +13,7 @@ export const createCar = /* GraphQL */ `
             longitude
             heading
             isActive
-            orders {
-                items {
-                    id
-                    createdAt
-                    type
-                    status
-                    originLatitude
-                    originLongitude
-                    destLatitude
-                    destLongitude
-                    userId
-                    carId
-                    updatedAt
-                }
-                nextToken
-            }
             userId
-            user {
-                id
-                username
-                email
-                orders {
-                    nextToken
-                }
-                car {
-                    id
-                    type
-                    latitude
-                    longitude
-                    heading
-                    isActive
-                    userId
-                    createdAt
-                    updatedAt
-                }
-                createdAt
-                updatedAt
-            }
             createdAt
             updatedAt
         }
