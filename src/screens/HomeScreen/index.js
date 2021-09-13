@@ -217,7 +217,7 @@ const HomeScreen = () => {
                     <TouchableOpacity activeOpacity={0.8} onPress={onGo} style={[styles.roundButton2]}>
                         <Text style={tailwind("text-3xl font-bold text-white")}>
                             {
-                                isOnline ? 'END' : 'GO'
+                                car?.isActive ? 'END' : 'GO'
                             }
                         </Text>
                     </TouchableOpacity>
