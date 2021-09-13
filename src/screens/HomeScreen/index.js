@@ -70,6 +70,7 @@ const HomeScreen = () => {
             }));
 
             // console.log("This is updated car info", updatedCarData.data.updateCar);
+            // works
             setCar(updatedCarData.data.updateCar);
         } catch (err) {
             console.log(err);
