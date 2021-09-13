@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import tailwind from 'tailwind-rn';
 import HomeScreen from "./src/screens/HomeScreen";
@@ -13,6 +13,21 @@ import {withAuthenticator} from "aws-amplify-react-native";
 Amplify.configure(config);
 
 const App = () => {
+
+    useEffect(() =>  {
+        const updateUserCar = async () => {
+            try {
+
+            } catch (e) {
+
+            }
+        }
+
+        updateUserCar();
+
+    }, []);
+
+
   return (
           <View style={tailwind('flex-1')}>
 
