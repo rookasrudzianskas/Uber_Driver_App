@@ -69,7 +69,10 @@ const HomeScreen = () => {
 
     const fetchOrders = async () => {
         try {
-            const ordersData = await API.graphql(graphqlOperation(listOrders));
+            const ordersData = await API.graphql(graphqlOperation(listOrders, {
+
+            }));
+            setNewOrders((ordersData.data.listOrders));
         } catch (err) {
             console.log(err);
         }
