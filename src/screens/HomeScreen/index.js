@@ -158,7 +158,7 @@ const HomeScreen = () => {
             )
         }
 
-        if(isOnline ) {
+        if(car?.isActive ) {
            return (
                 <Text style={tailwind('text-xl font-medium text-gray-800')}>You are online</Text>
            )
