@@ -36,7 +36,7 @@ const NewOrderPopup = ({ newOrder, onAccept, onDecline, duration, distance }) =>
                         <View style={tailwind("flex flex-row items-center")}>
 
                             <AntDesign name={"star"} size={15} color={"white"} style={tailwind("ml-1")}/>
-                            <Text style={tailwind("text-gray-200 text-xl ml-1")}>{newOrder?.user?.rating}</Text>
+                            <Text style={tailwind("text-gray-200 text-xl ml-1")}>{newOrder?.user?.rating || '5.00'}</Text>
                         </View>
                     </View>
                 </View>
