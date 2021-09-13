@@ -190,7 +190,7 @@ const HomeScreen = () => {
                             <Text style={tailwind("text-xl font-bold ml-5")}>{order.distance ? (order.distance).toFixed(1) : '0'} km</Text>
                         </View>
                     </View>
-                    <Text style={tailwind('text-xl font-medium text-gray-800 ml-4')}>Dropping off {order.user.username}</Text>
+                    <Text style={tailwind('text-xl font-medium text-gray-800 ml-4')}>Dropping off {order?.user?.username}</Text>
                 </View>
             // console.log("The render Bottom Title works perfectly");
             )
