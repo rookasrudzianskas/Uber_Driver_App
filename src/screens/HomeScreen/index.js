@@ -91,25 +91,27 @@ const HomeScreen = () => {
     const onUserLocationChange = async (event) => {
         setMyPosition(event.nativeEvent.coordinate);
 
-        // update the car and set it to active
-        try {
-            const userData = await Auth.currentAuthenticatedUser();
-            const input = {
-                id: userData.attributes.sub,
-                latitude: ,
-                longitude: ,
-                heading: ,
-            };
-            const updatedCarData = await API.graphql(graphqlOperation(updateCar, {
-                input: input,
-            }));
+        console.log(event.nativeEvent.coordinate);
 
-            // console.log("This is updated car info", updatedCarData.data.updateCar);
-            // works
-            setCar(updatedCarData.data.updateCar);
-        } catch (err) {
-            console.log(err);
-        }
+        // update the car and set it to active
+        // try {
+        //     const userData = await Auth.currentAuthenticatedUser();
+        //     const input = {
+        //         id: userData.attributes.sub,
+        //         latitude: event.nativeEvent.coordinate,
+        //         longitude: event.nativeEvent.coordinate,
+        //         heading: ,
+        //     };
+        //     const updatedCarData = await API.graphql(graphqlOperation(updateCar, {
+        //         input: input,
+        //     }));
+        //
+        //     // console.log("This is updated car info", updatedCarData.data.updateCar);
+        //     // works
+        //     setCar(updatedCarData.data.updateCar);
+        // } catch (err) {
+        //     console.log(err);
+        // }
     }
 
     const onDirectionFound = (event) => {
