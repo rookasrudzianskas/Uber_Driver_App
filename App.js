@@ -17,6 +17,7 @@ const App = () => {
     useEffect(() =>  {
         const updateUserCar = async () => {
             try {
+                // get authenticated user
 
             } catch (e) {
 
