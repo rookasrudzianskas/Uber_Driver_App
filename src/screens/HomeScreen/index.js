@@ -10,7 +10,7 @@ import tw from "tailwind-react-native-classnames";
 import NewOrderPopup from "../../components/NewOrderPopup";
 import {API, Auth, graphqlOperation} from "aws-amplify";
 import {getCar, listOrders} from "../../graphql/queries";
-import {updateCar} from "../../graphql/mutations";
+import {updateCar, updateOrder} from "../../graphql/mutations";
 
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyBmXijpsVGRk39hnHdg6aWoeZ_Uaj81B-Y';
@@ -82,9 +82,24 @@ const HomeScreen = () => {
         setNewOrders(newOrders.slice(1));
     }
 
-    const onAccept = (newOrder) => {
+    const onAccept = async (newOrder) => {
         // @TODO for the application
-        setOrder(newOrder);
+        const input = {
+            id: newOrder.id,
+            status: "PICKING_UP_CLIENT",
+            carId: car.id,
+        }
+        try {
+            const orderData = await API.graphql(graphqlOperation(updateOrder, {
+                input
+            }));
+
+            setOrder(orderData);
+        } catch (e) {
+            console.log(e);
+        }
+
+
         setNewOrders(newOrders.slice(1));
     }
 
