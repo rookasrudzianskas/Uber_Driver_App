@@ -65,13 +65,13 @@ const HomeScreen = () => {
             const userData = await Auth.currentAuthenticatedUser();
             const input = {
                 id: userData.attributes.sub,
-                isActive: !userData.isActive,
+                isActive: !car.isActive,
             };
             const updatedCarData = await API.graphql(graphqlOperation(updateCar, {
                 input: input,
             }));
 
-            console.log("This is updated car info", updatedCarData.data.updateCar);
+            // console.log("This is updated car info", updatedCarData.data.updateCar);
             setCar(updatedCarData.data.updateCar);
         } catch (err) {
             console.log(err);
