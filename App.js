@@ -37,10 +37,12 @@ const App = () => {
                 // if not create a new car for the user
 
                     const newCar = {
-                        id: ,
-                        type: ,
-                        userId: ,
+                        id: authenticatedUser.attributes.sub,
+                        type: 'UberX',
+                        userId: authenticatedUser.attributes.sub,
                     }
+                    
+                    await API.graphql(graphqlOperation())
 
             } catch (e) {
                 console.log(e);
