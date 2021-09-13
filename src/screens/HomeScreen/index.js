@@ -92,12 +92,13 @@ const HomeScreen = () => {
     }
 
     const onDecline = () => {
-        setNewOrders(newOrders.shift());
+        console.log(newOrders.slice(1));
+        setNewOrders(newOrders.slice(1));
     }
 
     const onAccept = (newOrder) => {
         setOrder(newOrder);
-        setNewOrders(newOrders.shift());
+        setNewOrders(newOrders.slice(1));
     }
 
 
