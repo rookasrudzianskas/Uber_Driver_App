@@ -24,34 +24,7 @@ const HomeScreen = () => {
 
     const [order, setOrder] = useState(null);
 
-    const [newOrders, setNewOrders] = useState([{
-        id: '1',
-        type: 'UberX',
-        originLatitude: 54.78376120422243,
-        originLongitude: 25.34514614695383,
-
-        destLatitude: 54.78619884006051,
-        destLongitude: 25.343176959208805,
-
-        user: {
-            rating: 5.01,
-            name: "Rokas",
-        }
-    },
-        {
-            id: '2',
-            type: 'UberXL',
-            originLatitude: 54.78376120422243,
-            originLongitude: 25.34514614695383,
-
-            destLatitude: 54.78619884006051,
-            destLongitude: 25.343176959208805,
-
-            user: {
-                rating: 5.01,
-                name: "Vadim",
-            }
-        }]);
+    const [newOrders, setNewOrders] = useState([]);
 
     const fetchCar = async () => {
         try {
@@ -70,7 +43,7 @@ const HomeScreen = () => {
     const fetchOrders = async () => {
         try {
             const ordersData = await API.graphql(graphqlOperation(listOrders, {
-
+                // filter: { status: { eq: 'NEW' }}
             }));
             setNewOrders((ordersData.data.listOrders));
         } catch (err) {
@@ -80,6 +53,7 @@ const HomeScreen = () => {
 
     useEffect(() => {
         fetchCar();
+        fetchOrders();
     }, []);
 
     const onGo = async () => {
