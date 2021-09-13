@@ -312,4 +312,4 @@ const HomeScreen = () => {
 
 export default HomeScreen;
 
-// app is done
+// app is done 🔥
