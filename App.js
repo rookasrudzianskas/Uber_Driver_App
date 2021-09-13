@@ -9,6 +9,7 @@ import config from "./src/aws-exports";
 import {withAuthenticator} from "aws-amplify-react-native";
 import graphql from "graphql";
 import {getCarId} from "./src/graphql/queries";
+import {createCar} from "./src/graphql/mutations";
 // import { withAuthenticator } from 'aws-amplify-react-native';
 
 
@@ -41,8 +42,10 @@ const App = () => {
                         type: 'UberX',
                         userId: authenticatedUser.attributes.sub,
                     }
-                    
-                    await API.graphql(graphqlOperation())
+
+                    await API.graphql(graphqlOperation(createCar, {
+                        input: newCar,
+                    }))
 
             } catch (e) {
                 console.log(e);
